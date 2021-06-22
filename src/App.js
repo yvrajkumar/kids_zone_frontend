@@ -14,16 +14,22 @@ import SignUp from "./customer/Pages/SignUp/SignUp";
 import ForgotPassword from "./customer/Pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "./customer/Pages/ResetPassword/ResetPassword";
 
+import LandingPage from "./customer/Pages/LandingPage/landingpage";
+import ProductPage from "./customer/Pages/ProductPage/Products";
+import ProductDisplay from "./customer/Pages/ProductDisplay/productdisplay";
 function App() {
   return (
     <div className="App">
       <Router>
           <Switch>
+          <Route path="/LandingPage" component={LandingPage}/>
             <Route exact path="/" component={Home} />
             <Route path="/SignIn" component={SignIn} />
             <Route path="/SignUp" component={ SignUp } />
             <Route path="/ForgotPassword" component={ForgotPassword} />
             <Route path="/ResetPassword" component={ResetPassword} />
+            <Route path="/ProductPage" component={ProductPage}/>
+            <Route path="/ProductDisplay" component={ProductDisplay}/>
             {/* <Route path="/Profile" component={ Profile } /> */}
             <Redirect to="/"></Redirect>
           </Switch>
