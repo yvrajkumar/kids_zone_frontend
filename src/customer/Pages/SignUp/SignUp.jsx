@@ -25,18 +25,19 @@ function SignUp() {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    axios.post(`http://localhost:5000/SignUp`, { signupDetails })
+    axios.post(`http://localhost:5000/api/v1/signup/`, { signupDetails })
       .then(res => {
         console.log(res);
         console.log(res.data);
         console.log(res.status);
-        if(res.data.result==="Account Created")
+        if(res.data.status==="SUCCESS")
         {
-          history.push('/SignIn')
+          history.push('/SignIn');
+          alert(res.data.message);
         }
         else
         {
-          alert("Account exist with this email.");
+          alert(res.data.message);
         }
       })
     return;        
