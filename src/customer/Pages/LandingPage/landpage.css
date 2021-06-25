@@ -1,0 +1,158 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+body{
+  overflow-x: hidden;
+}
+
+.dropdown-toggle::after {
+    content: none;
+  }
+  .material-icons.md-36 {
+    font-size: 36px;
+  }
+  .material-icons.md-24 {
+    font-size: 24px;
+  }
+  .material-icons.mycolor {
+    color: #a8854a;
+    background: white;
+  }
+  
+  
+  .box-effect {
+    transition: box-shadow 0.3s;
+  }
+  .box-effect:hover {
+    box-shadow: 0 10px 30px 1px rgba(33, 33, 33, 0.2);
+  }
+  .material-icons.myborder-left {
+    width: 100px;
+    height: 50px;
+    border-top-left-radius: 110px;
+    border-top-right-radius: 110px;
+    transform: rotate(90deg);
+    margin-left: -45px;
+  }
+  .material-icons.myborder-right {
+    width: 100px;
+    height: 50px;
+    border-top-left-radius: 110px;
+    border-top-right-radius: 110px;
+    transform: rotate(-90deg);
+    margin-right: -45px;
+  }
+  .owl-carousel .owl-nav {
+    display: none;
+    height: 0px;
+  }
+  .owl-carousel:hover .owl-nav {
+    display: block;
+  }
+  
+  .owl-carousel .owl-prev.disabled,
+  .owl-carousel .owl-next.disabled {
+    pointer-events: none;
+    opacity: 0;
+  }
+  
+  .owl-carousel .owl-next {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .owl-carousel .owl-prev {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .myfont {
+    font-family: "Unna", serif;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .myfont2 {
+    font-family: "Times New Roman", Times, serif;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .moveup {
+    transition: transform 0.5s;
+  }
+  .moveup:hover {
+    -moz-transform: translate(0px, -20px);
+    -ms-transform: translate(-2px, -20px);
+    -o-transform: translate(-2px, -2px);
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(0px, -20px);
+  }
+  
+  .myborder2 {
+    border-right: 5px solid #a8854a;
+  }
+  .footer {
+    background-color: #7cc9d1;
+  }
+  .footer-bg {
+    background: url("https://www.hamleys.in/static/version1612899424/frontend/Embitel/Hamleys/en_US/images/footerbg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+  .navbar-list {
+    list-style-type: none;
+  }
+  .navbar-a {
+    color: "white";
+    text-decoration: none;
+  }
+  .navbar a,
+  .navbar-small {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  .navbar-small {
+    min-height: 20px !important;
+  }
+  
+  .cardhov {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+  
+  .cardhov:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+
+  .back-to-top .top {
+    position: fixed;
+    cursor: pointer;
+    bottom: 15px;
+    right: 15px;
+    font-size: 25px;
+    color: #ffffff;
+    background-color: #000000;
+    z-index: 4;
+    width: 45px;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 50%;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  
+  .back-to-top .top:hover {
+    color: #ffffff;
+    background: #ff3366;
+  }
