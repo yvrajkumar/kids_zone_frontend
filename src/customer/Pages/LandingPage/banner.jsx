@@ -2,50 +2,50 @@ import React from "react";
 import kids_banner1 from "../../Images/kids_banner1.jpg";
 import kids_banner2 from "../../Images/kids_banner2.jpg";
 import kids_banner3 from "../../Images/kids_banner3.jpg";
-import kids_banner4 from "../../Images/kids_banner4.jpg";
+
 function Banner() {
+  const onClickHandler = (e) => { 
+
+    localStorage.setItem('categoryType', e.target.name);
+    localStorage.removeItem('productDetails');
+
+  };
   return (
     <div
       id="carouselExampleControls"
       className="carousel slide"
       data-ride="carousel"
-      data-interval="2000"
+      data-interval="5000"
       data-pause="false"
     >
       <div className="carousel-inner">
-        <div className="carousel-item active" data-interval="2000">
-          <a href="/">
+        <div className="carousel-item active" data-interval="5000" >
+          <a href="/Boys/T-Shirts">
             <img
               src={kids_banner1}
               alt="..."
               className="d-block w-100"
+              name="T-Shirt" onClick={onClickHandler}
             />
           </a>
         </div>
-        <div className="carousel-item" data-interval="2000">
-          <a href="/">
+        <div className="carousel-item" data-interval="5000">
+          <a href="/Brand" name="" onClick={onClickHandler}>
             <img
               src={kids_banner2}
                 alt="..."
               className="d-block w-100"
+              name="brands" onClick={onClickHandler}
             />
           </a>
         </div>
-        <div className="carousel-item" data-interval="2000">
-          <a href="/">
+        <div className="carousel-item" data-interval="5000">
+          <a href="/Girls" name="" onClick={onClickHandler}>
             <img
               src={kids_banner3}
               alt="..."
               className="d-block w-100"
-            />
-          </a>
-        </div>
-        <div className="carousel-item" data-interval="2000">
-          <a href="/">
-            <img
-              src={kids_banner4}
-              alt="..."
-              className="d-block w-100"
+              name="female" onClick={onClickHandler}
             />
           </a>
         </div>
@@ -53,7 +53,7 @@ function Banner() {
       </div>
       <a
         className="carousel-control-prev my-prev"
-        href="/carouselExampleControls"
+        href="#carouselExampleControls"
         role="button"
         data-slide="prev"
       >
@@ -61,7 +61,7 @@ function Banner() {
       </a>
       <a
         className="carousel-control-next my-next"
-        href="/carouselExampleControls"
+        href="#carouselExampleControls"
         role="button"
         data-slide="next"
       >

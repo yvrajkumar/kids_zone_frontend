@@ -2,9 +2,11 @@
 import React from "react";
 
 function ShopByCategoryCard(props){
+  let propURL= props.url;
+  let url="/ProductDisplay/"+propURL;
     return(
         <div className="col-11 col-md-5 col-lg-3 col-xl-2 mx-5 my-4">
-      <a href={props.url} style={{ textDecoration: "none" }}>
+      <a href={url} style={{ textDecoration: "none" }}>
         <div
           className="card h-100 cardhov"
           style={{
@@ -25,20 +27,21 @@ function ShopByCategoryCard(props){
             className="shadow"
           />
           <div className="card-body">
-            <h4
+            <h6
               className="card-text text-center mt-n3 pb-4"
-              style={{ color: "rgba(0,0,0,0.7)" }}
+              style={{ color: "#05445E" }}
             >
-              {props.offer}
-            </h4>
-          </div>
-          <div className="card-body">
-            <h4
-              className="card-text text-center mt-n3 pb-4"
-              style={{ color: "rgba(0,0,0,0.7)" }}
-            >
-              {props.description}
-            </h4>
+              <br></br>
+              {props.name}
+            </h6>
+            <h6 className="card-text text-center mt-n3 pb-4" style={{ color: "#05445E" }}>
+            <br></br>
+              Size: {props.size}
+            </h6>
+            <h6 className="card-text text-center mt-n3 pb-4" style={{ color: "#FB4570" }}>
+            <br></br>
+              &#8377; {props.price}
+            </h6>
           </div>
           
         </div>

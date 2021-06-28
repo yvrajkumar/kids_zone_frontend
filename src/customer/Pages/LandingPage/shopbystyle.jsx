@@ -1,68 +1,84 @@
 import React from "react";
 import ShopByStyleCard from "./shopybystylecard";
+import TShirts from "../../Images/T-Shirts.jpg";
+import Shirts from "../../Images/Shirts.webp";
+import Kurta from "../../Images/Kurta.webp";
+import Jeans from "../../Images/Jeans.webp";
+import Jumpsuit from "../../Images/Jumpsuit.webp";
+import Frocks from "../../Images/Frocks.webp";
+import Tops from "../../Images/Tops.webp";
+import Skirts from "../../Images/Skirts.jpg";
 
 function ShopbyStyle(){
     return(
         <div className="container-fluid mx-1 ">
      <div className="text-center">
-        <h1 className="px-md-5 px-3 pt-3" style={{fontFamily:"'Ultra', serif"}}>Shop By Style</h1>
+        <h1 className="px-md-5 px-3 pt-3" style={{color: "#189AB4",fontFamily:"'Ultra', serif"}}>Shop By Style</h1>
       </div>
       <div className="row ">
         <ShopByStyleCard
-          src="https://assets.ajio.com/medias/sys_master/images/images/h9c/hde/32855112941598/11062021-D-KHP-Brands-TalesStories-Min40.jpg"
+          src={TShirts}
           
           width="85px"
-          offer=""
-          url="#"
+          type="T-Shirts"
+          name="T-Shirt"
+          url="/Boys/T-Shirts"
         />
         <ShopByStyleCard
-          src="https://assets.ajio.com/medias/sys_master/images/images/he4/h1b/32855113596958/11062021-D-KHP-Brands-DNMX-min50.jpg"
+          src={Shirts}
           
           width="65px"
-          offer=""
-          url="#"
+          type="Shirts"
+          name="Shirt"
+          url="/Boys/Shirts"
         />
         <ShopByStyleCard
-          src="https://assets.ajio.com/medias/sys_master/images/images/h0d/h86/32855113629726/11062021-D-KHP-Brands-unlimited-under399.jpg"
+          src={Kurta}
           
           width="90px"
-          offer=""
-          url="#"
+          type="Kurta"
+          name="Kurta"
+          url="/Boys/Kurta"
         />
         <ShopByStyleCard
-          src="https://assets.ajio.com/medias/sys_master/images/images/h13/h4f/32855113728030/11062021-D-KHP-Brands-frenz-under299.jpg"
+          src={Jeans}
           
           width="140px"
-          offer=""
-          url="#"
+          type="Jeans"
+          name="Jeans"
+          url="/Boys/Jeans"
         />
         <ShopByStyleCard
-          src="https://assets.ajio.com/medias/sys_master/images/images/h08/h30/32855113138206/11062021-D-KHP-Brands-612leaugue-Min40.jpg"
+          src={Jumpsuit}
           
           width="80px"
-          offer=""
-          url="#"
+          type="Jumpsuit"
+          name="Jumpsuit"
+          url="/Girls/Jumpsuit"
         />
         <ShopByStyleCard
-          src="https://assets.ajio.com/medias/sys_master/images/images/h65/haa/32855112908830/11062021-D-KHP-Brands-lukeLilly-Upto60.jpg"
+          src={Tops}
           
           width="90px"
-          offer=""
-          url="#"
+          type="Tops"
+          name="Tops"
+          url="/Girls/Tops"
         />
         <ShopByStyleCard
-          src="https://assets.ajio.com/medias/sys_master/images/images/h5e/h23/32855112646686/11062021-D-KHP-Brands-cutecumber-Upto70.jpg"
+          src={Frocks}
           
           width="70px"
-          offer=""
-          url="#"
+          type="Frocks"
+          name="Frock"
+          url="/Girls/Frocks"
         />
         <ShopByStyleCard
-          src="https://assets.ajio.com/medias/sys_master/images/images/hef/hce/32855113760798/11062021-D-KHP-Brands-Cherrycrumble-Min50.jpg"
+          src={Skirts}
           
           width="120px"
-          offer=""
-          url="#"
+          type="Skirts"
+          name="Skirt"
+          url="/Girls/Skirts"
         />
         
       </div>

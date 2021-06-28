@@ -1,41 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState} from "react";
 import "./landpage.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import kids_zone_logo from "../../Images/kids_zone_logo.png";
 import pro_logo from "../../Images/pro_logo.png";
-import axios from 'axios';
+import { useHistory} from "react-router-dom";
 
 function Navbar(){
-  const [categoryType, setcategoryType] = useState({
-    type: "",
-  });
-
+  const [status, setstatus] = useState("");
+  const [cartURL, setcartURL] = useState("/SignIn");
+  const [orderURL, setorderURL] = useState("/SignIn");
   let history = useHistory();
-
   const onClickHandler = (e) => { 
-    let choice = categoryType;
-    choice["type"] = e.target.name;
-    setcategoryType(choice);
-    localStorage.removeItem('productDetails');
-    productsCall();
-  };
 
-  const productsCall = async (e) => {
-    
-    axios.post(`http://localhost:5000/api/v1/products/`, { categoryType })
-  .then(res => {
-    console.log(res);
-    console.log(res.data);
-    console.log(res.status);
-    if(res.data.status==="SUCCESS")
-    {
-      console.log(res.data.validation);
-      localStorage.setItem('productDetails', JSON.stringify(res.data.data));   
-      history.push("/ProductPage");  
+    localStorage.setItem('categoryType', e.target.name);
+    localStorage.removeItem('productDetails');
+
+  }; 
+  useEffect(() => {
+    try{
+      if(JSON.parse(localStorage.getItem('userDetails')).status==="SUCCESS")
+      {
+        setstatus(JSON.parse(localStorage.getItem('userDetails')).status);
+        setcartURL("/Cart");
+        setorderURL("/Order");
+      }
     }
-    
-  })
-    return;        
+    catch(e){
+      setstatus("");
+    }
+  }, []);
+
+  const signoutHandler = async (e) => {
+    e.preventDefault();
+    localStorage.removeItem('userDetails');
+    history.push('/');
+    window.location.reload();
+    return;
   }
 
     return(
@@ -78,10 +78,9 @@ function Navbar(){
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav dropdown">
-            <Link 
+            <Link to="/Boys"
               style={{ color: "black", textDecoration: "none",fontFamily:"'Kanit', sans-serif",fontSize:"20px" }}
               className="nav-link dropdown-toggle"
-              href="/"
               id="navbarDropdown"
               role="button"
               data-toggle="dropdown"
@@ -138,7 +137,7 @@ function Navbar(){
           </ul>
           <ul className="navbar-nav mr-auto">
             <li className="nav-item dropdown">
-            <Link 
+            <Link to="/Girls"
                 style={{ color: "black", textDecoration: "none" ,fontFamily:"'Kanit', sans-serif",fontSize:"20px"}}
                 className="nav-link dropdown-toggle text-black"
                 href="/"
@@ -208,7 +207,7 @@ function Navbar(){
             </li>
 
             <div className="nav-item dropdown">
-            <Link 
+            <Link to="/Brand"
                 style={{ color: "black", textDecoration: "none",fontFamily:"'Kanit', sans-serif",fontSize:"20px" }}
                 className="nav-link dropdown-toggle text-black"
                 href="/"
@@ -322,28 +321,39 @@ function Navbar(){
                 
               }}
             >
+            {status==="SUCCESS" ?
+              
               <div className="dropdown-cont">
-                <span className="text-black">
-                  Don't have an account?{" "}
-                  
-                  <Link to="/SignUp"  className="btn btn-md mt-2" style={{color:"black",border: "2px solid black"}}>
-                    SIGN Up
-                  </Link>
-                  <Link to="/SignIn"  className="btn btn-md mt-2" style={{color:"black",border: "2px solid black"}}>
-                    SIGN IN
-                  </Link>
-                </span>
-
+              <span className="text-black">
                 
-                
-               
+                <Link to="/Profile"  className="btn btn-md mt-2" style={{color:"black",border: "2px solid black"}}>
+                  Profile
+                </Link><br></br>
+                <Link  onClick={signoutHandler} className="btn btn-md mt-2" style={{color:"black",border: "2px solid black"}}>
+                  Sign out
+                </Link>
+              </span> 
               </div>
+            :
+              <div className="dropdown-cont">
+              <span className="text-black">
+                
+                <Link to="/SignUp"  className="btn btn-md mt-2" style={{color:"black",border: "2px solid black"}}>
+                  SIGN Up
+                </Link>
+                <Link to="/SignIn"  className="btn btn-md mt-2" style={{color:"black",border: "2px solid black"}}>
+                  SIGN IN
+                </Link>
+              </span> 
+              </div>
+            }
+
             </div>
           </ul>
 
           <ul className="navbar-nav dropdown">
-            <a
-              href="/"
+            <Link
+              to={cartURL}
               className="nav-link dropdown-toggle "
               id="navbarDropdown"
               role="button"
@@ -356,16 +366,7 @@ function Navbar(){
                   shopping_bag
                 </span>
               
-            </a>
-            <div
-              className="dropdown-menu dropdown-menu-right text-center px-3"
-              aria-labelledby="navbarDropdown"
-              style={{
-                width: "350px"
-              }}
-            >
-              <p>You have no items in your shopping cart</p>
-            </div>
+            </Link>
           </ul>
           
         </div>
@@ -379,9 +380,9 @@ function Navbar(){
           <ul className="navbar-nav ml-auto">
             
             <li className="nav-item">
-              <a
+              <Link
                 className="nav-link"
-                href="/"
+                to={orderURL}
                 style={{
                   color: "white",
                   textDecoration: "none",
@@ -389,12 +390,12 @@ function Navbar(){
                 }}
               >
                 Track my order
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className="nav-link"
-                href="/"
+                to={orderURL}
                 style={{
                   color: "white",
                   textDecoration: "none",
@@ -402,7 +403,7 @@ function Navbar(){
                 }}
               >
                 Cancel/Return your order
-              </a>
+              </Link>
             </li>
             
           </ul>

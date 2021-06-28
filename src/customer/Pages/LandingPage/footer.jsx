@@ -1,38 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import insta_icon from "../../Images/insta_icon.png";
 import fb_icon from "../../Images/fb_icon.png";
 import twitter_icon from "../../Images/twitter_icon.png";
 import youtube_icon from "../../Images/youtube_icon.png";
-import axios from 'axios';
+
 function Footer() {
-  const [categoryType, setcategoryType] = useState({
-    type: "",
-  });
 
   const onClickHandler = (e) => { 
-    let choice = categoryType;
-    choice["type"] = e.target.name;
-    setcategoryType(choice);
-    productsCall();
+    localStorage.setItem('categoryType', e.target.name);
+    localStorage.removeItem('productDetails');
   };
-
-  const productsCall = async (e) => {
-    
-    axios.post(`http://localhost:5000/api/v1/products/`, { categoryType })
-  .then(res => {
-    console.log(res);
-    console.log(res.data);
-    console.log(res.status);
-    if(res.data.status==="SUCCESS")
-    {
-      console.log(res.data.validation);
-      localStorage.setItem('productDetails', JSON.stringify(res.data.data));
-          
-    }
-  })
-    return;        
-  }
 
   return ( 
     <div

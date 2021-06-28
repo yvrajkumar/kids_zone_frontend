@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300,500&family=Montserrat:wght@100;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap");
+.orderpage{
+    margin-top: 5%;
+    padding-left: 3%;
+    padding-right: 3%; 
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    margin-bottom: 5%;
+    border: 1px solid #e6e6e6;
+    border-radius: 3%;
+}
+.orderimg{
+    border-radius:3% ;
+}
+.ordertxt{
+    background-color: blue;
+    border-radius: 8%;
+    padding: 0.5%;
+    width: 30%;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "Arvo", serif;
+}
+.order_product_name{
+    color: #555;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: bold;
+}
+.order_id{
+    font-family: "Roboto Slab", serif;
+    color: #555;
+    font-style: oblique;
+}
+.order_info{
+    
+    font-family: "Josefin Sans", sans-serif;
+}
+.cancel{
+    background-color:#e64a73 !important;
+    color: #000;
+    font-weight: bold !important;
+}

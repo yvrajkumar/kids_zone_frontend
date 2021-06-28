@@ -17,6 +17,10 @@ import ResetPassword from "./customer/Pages/ResetPassword/ResetPassword";
 import LandingPage from "./customer/Pages/LandingPage/landingpage";
 import ProductPage from "./customer/Pages/ProductPage/Products";
 import ProductDisplay from "./customer/Pages/ProductDisplay/productdisplay";
+import Profile from "./customer/Pages/Profile/Profile";
+import Order from "./customer/Pages/Order/OrderPage";
+import Cart from "./customer/Pages/Cart/Cart";
+
 function App() {
   return (
     <div className="App">
@@ -28,6 +32,9 @@ function App() {
             <Route path="/ForgotPassword" component={ForgotPassword} />
             <Route path="/ResetPassword" component={ResetPassword} />
             <Route path="/ProductPage" component={ProductPage}/>
+            <Route path="/Profile" component={Profile}/>
+            <Route path="/Order" component={Order}/>
+            <Route path="/Cart" component={Cart}/>
             <Route path="/Boys" component={ProductPage}/>
             <Route path="/Boys/T-Shirts" component={ProductPage}/>
             <Route path="/Boys/Shorts" component={ProductPage}/>
@@ -46,7 +53,8 @@ function App() {
             <Route path="/Brand/Pantaloons Junior" component={ProductPage}/>
             <Route path="/Brand/Many Frocks" component={ProductPage}/>
             <Route path="/Brand/Levis" component={ProductPage}/>
-            <Route path="/ProductDisplay" component={ProductDisplay}/>
+            <Route path="/ProductDisplay/:id" component={ProductDisplay}/>
+            <Route path="/sort" component={ProductPage}/>
             {/* <Route path="/Profile" component={ Profile } /> */}
             <Redirect to="/"></Redirect>
           </Switch>
