@@ -55,6 +55,7 @@ function App() {
             <Route path="/Brand/Levis" component={ProductPage}/>
             <Route path="/ProductDisplay/:id" component={ProductDisplay}/>
             <Route path="/sort" component={ProductPage}/>
+            <Route path="/SearchResults" component={ProductPage}/>
             {/* <Route path="/Profile" component={ Profile } /> */}
             <Redirect to="/"></Redirect>
           </Switch>

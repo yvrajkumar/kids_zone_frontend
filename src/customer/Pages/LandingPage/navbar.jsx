@@ -4,17 +4,47 @@ import { Link } from "react-router-dom";
 import kids_zone_logo from "../../Images/kids_zone_logo.png";
 import pro_logo from "../../Images/pro_logo.png";
 import { useHistory} from "react-router-dom";
+import axios from 'axios';
 
 function Navbar(){
   const [status, setstatus] = useState("");
   const [cartURL, setcartURL] = useState("/SignIn");
   const [orderURL, setorderURL] = useState("/SignIn");
   let history = useHistory();
+  let search;
+
   const onClickHandler = (e) => { 
 
     localStorage.setItem('categoryType', e.target.name);
     localStorage.removeItem('productDetails');
 
+  }; 
+  const onSearchChange = (e) => { 
+    search=e.target.value;
+  }; 
+  const onSearchHandler = (e) => { 
+
+    if(search!=null)
+    {
+      axios.post(`http://localhost:5000/api/v1/searchresults/`, {categoryType:{type:search}})
+    .then(res => {
+      console.log(res);
+      console.log(res.data);
+      console.log(res.status);
+      if(res.data.status==="SUCCESS")
+      {
+        localStorage.setItem('productDetails', JSON.stringify(res.data.data));   
+        history.push("/SearchResults/"+search+"/items");
+      }
+      else{
+        alert("No results found with your query. Try a new query.");
+      }
+      
+    })
+    }
+    else{
+      alert("Query should not be null.");
+    }
   }; 
   useEffect(() => {
     try{
@@ -276,7 +306,7 @@ function Navbar(){
             
             
           </ul>
-          <form className="form-inline mt-2" id="navBarSearchForm">
+          <div className="form-inline mt-2" id="navBarSearchForm">
           <div className="input-group mb-3 ">
               <input
                 type="text"
@@ -285,16 +315,17 @@ function Navbar(){
                 aria-label="What are you looking for?"
                 aria-describedby="basic-addon2"
                 style={{width:"300px"}}
+                onChange={onSearchChange}
               />
               <div className="input-group-append">
-                <button className="input-group-text bg-white" id="basic-addon2" >
+                <button className="input-group-text bg-white" id="basic-addon2"  onClick={onSearchHandler}>
                   <span className="material-icons" style={{ fontSize: "12px" }}>
                     search
                   </span>
                 </button>
               </div>
             </div>
-          </form>
+            </div>
           
           <ul className="navbar-nav dropdown">
             <a
