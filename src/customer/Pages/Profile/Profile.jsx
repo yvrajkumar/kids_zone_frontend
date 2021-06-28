@@ -63,7 +63,7 @@ function Profile() {
   const deleteHandler = async (e) => {
     e.preventDefault();
     console.log(profileDetails.email);
-    axios.post(`http://localhost:5000/api/v1/deleteprofile`, {profileDetails})
+    axios.post(`https://kids-zone-app-be.herokuapp.com/api/v1/deleteprofile`, {profileDetails})
       .then(res => {
         console.log(res);
         console.log(res.data);

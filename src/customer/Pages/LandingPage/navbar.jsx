@@ -26,7 +26,7 @@ function Navbar(){
 
     if(search!=null)
     {
-      axios.post(`http://localhost:5000/api/v1/searchresults/`, {categoryType:{type:search}})
+      axios.post(`https://kids-zone-app-be.herokuapp.com/api/v1/searchresults/`, {categoryType:{type:search}})
     .then(res => {
       console.log(res);
       console.log(res.data);
