@@ -5,8 +5,10 @@ import axios from 'axios';
 function ShopByCategory(){
   const [productList, setproductList] = useState([]);
   let urlChange = window.location.pathname.split('/').pop();
+  let url = window.location.pathname.split('/');
+  url = url[ url.length - 2 ];
   useEffect(()=> {
-    if(urlChange==="price_lth" || urlChange==="price_htl" ||  urlChange==="product_size_lth"|| urlChange==="product_size_htl")
+    if(urlChange==="items" || urlChange==="price_lth" || urlChange==="price_htl" ||  urlChange==="product_size_lth"|| urlChange==="product_size_htl")
     {
       setproductList(JSON.parse(localStorage.getItem('productDetails'))); 
     }
@@ -27,7 +29,7 @@ function ShopByCategory(){
       
     })
   }
-  }, [urlChange]);
+  }, [urlChange,url]);
   
     return(
     <div>
