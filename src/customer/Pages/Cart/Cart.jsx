@@ -16,7 +16,16 @@ function Cart() {
   let history = useHistory();
   
   useEffect(()=> {
-      axios.post(`https://kids-zone-app-be.herokuapp.com/api/v1/cartitems/`, {userDetails:{email:JSON.parse(localStorage.getItem('userDetails')).data.email}})
+    axios.post(`https://kids-zone-app-be.herokuapp.com/api/v1/products/`, {categoryType:{type:"brands"}})
+    .then(res => {
+      console.log(res);
+      console.log(res.data);
+      console.log(res.status);
+      if(res.data.status==="SUCCESS")
+      {
+        localStorage.setItem('productDetails', JSON.stringify(res.data.data));   
+        setproductDetails(JSON.parse(localStorage.getItem('productDetails')));
+        axios.post(`https://kids-zone-app-be.herokuapp.com/api/v1/cartitems/`, {userDetails:{email:JSON.parse(localStorage.getItem('userDetails')).data.email}})
       .then(res => {
         if(res.data.status==="SUCCESS")
         {
@@ -29,20 +38,12 @@ function Cart() {
           history.push("/");
         }
       })
-      axios.post(`https://kids-zone-app-be.herokuapp.com/api/v1/products/`, {categoryType:{type:"brands"}})
-          .then(res => {
-            console.log(res);
-            console.log(res.data);
-            console.log(res.status);
-            if(res.data.status==="SUCCESS")
-            {
-              localStorage.setItem('productDetails', JSON.stringify(res.data.data));   
-              setproductDetails(JSON.parse(localStorage.getItem('productDetails')));
-            }
-            
-            
-    })
-    
+      }
+      
+      
+  })
+      
+   
 
   }, []);
   const placeorder = async (e) => {
