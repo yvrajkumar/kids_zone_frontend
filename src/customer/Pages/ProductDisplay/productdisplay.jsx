@@ -35,15 +35,25 @@ function ProductDisplay() {
 
   const onChangeHandler = (e) => {
     let item = cart;
+    if(JSON.parse(localStorage.getItem('userDetails'))!=null)
+    {
     item["email"] = JSON.parse(localStorage.getItem('userDetails')).data.email;
     item["product_id"] = id;
     item["quantity"] = e.target.value;
     item["cost"] = (e.target.value)*(productDetails.price);
     setcart(item);
+    }
+    else{
+      alert('Please Sign In to add items to your cart.');
+      history.push("/SignIn");
+    }
+
   };
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    if(JSON.parse(localStorage.getItem('userDetails'))!=null) 
+    {
     axios.post(`https://kids-zone-app-be.herokuapp.com/api/v1/additem/`, { cart })
       .then(res => {
         console.log(res);
@@ -59,6 +69,11 @@ function ProductDisplay() {
           alert(res.data.message);
         }
       })
+    }
+    else{
+      alert('Please Sign In to add items to your cart.');
+      history.push("/SignIn");
+    }
     return;        
   }
 
@@ -98,7 +113,7 @@ function ProductDisplay() {
             </p>
             </div>
             <label className="quans">Quantity: &nbsp;</label>
-            <input type="number"  className="quant" onChange={onChangeHandler}></input>
+            <input type="number"  className="quant" min="1" onChange={onChangeHandler}></input>
             <button type="button" className="btn btn-secondary cart" onClick={onSubmitHandler}>Add to cart</button>
             <div className="product_add">
             <p>100% Original Products</p>
