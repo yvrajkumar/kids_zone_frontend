@@ -32,6 +32,9 @@ function SignIn() {
           history.push('/')
           
         }
+        else{
+          alert(res.data.message);
+        }
       })
         return;        
       }
