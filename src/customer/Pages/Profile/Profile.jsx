@@ -35,9 +35,8 @@ function Profile() {
         if(res.data.status==="SUCCESS")
         {
           console.log(res.data.updated);
-          localStorage.setItem('userDetails', JSON.stringify(res.data));
+          localStorage.setItem('userDetails', {userDetails});
           history.push('/profile');
-          setprofileDetails(JSON.parse(localStorage.getItem('userDetails')));
         }
         if(res.data.updated==="null")
         {
@@ -101,6 +100,7 @@ function Profile() {
                     type="email"
                     placeholder="Email"
                     name="email"
+                    value={profileDetails.email}
                     disabled
                 /><br></br>
 
@@ -141,8 +141,8 @@ function Profile() {
         <div className={classes.Profile_Box}>
         <form onSubmit={onSubmitHandler}>
                 <h1 className={classes.title_SU}>Profile</h1>
-                <button onClick={editHandler}>Edit</button> &nbsp;<button onClick={signoutHandler}>Sign Out</button>
-              
+                {/* <button onClick={editHandler}>Edit</button> &nbsp; */}
+                <button onClick={signoutHandler}>Sign Out</button>
               
               <br></br>
               <input
@@ -186,7 +186,7 @@ function Profile() {
               /><br></br>
 
               <br></br><br></br>
-
+              {/* <button onClick={deleteHandler}>Delete Profile</button> */}
         </form>
         </div>
     </div>
