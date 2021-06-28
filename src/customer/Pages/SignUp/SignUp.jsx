@@ -25,7 +25,7 @@ function SignUp() {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    axios.post(`http://localhost:5000/api/v1/signup/`, { signupDetails })
+    axios.post(`https://kids-zone-app-be.herokuapp.com/api/v1/signup/`, { signupDetails })
       .then(res => {
         console.log(res);
         console.log(res.data);

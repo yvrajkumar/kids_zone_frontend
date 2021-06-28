@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gentium+Basic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,200&display=swap");
+.cart_row{
+  align-items: center;
+}
+.cart_page_nm {
+  text-align: center;
+  font-family: "Fredericka the Great", cursive;
+  font-size: 2rem;
+  color: #e64a73;
+  padding-bottom: 0%; 
+}
+.cardflex {
+  
+  height: max-content !important;
+  padding: 1.5%;
+  position: relative;
+  margin-bottom: 2%;
+  margin-left: 3% !important;
+  margin-right: 3% !important;
+  border: 1px solid #e6e6e6;
+  border-radius: 3%;
+}
+
+.Product_name {
+  font-family: "Bebas Neue", cursive;
+  font-size: 2rem;
+}
+.card_image {
+  width: 20%;
+}
+.quan,
+.crt_price {
+  font-family: "Crimson Pro", serif;
+  font-style: oblique;
+  font-size: 25px;
+}
+.crt_prdt_info {
+  font-family: "Merriweather", serif;
+  font-size: 25px;
+}
+.btn_crt {
+  font-family: "Gentium Basic", serif;
+}
+

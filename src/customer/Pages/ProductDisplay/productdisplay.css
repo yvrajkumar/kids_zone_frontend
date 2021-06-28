@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300,500&family=Montserrat:wght@100;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap");
+.productconatin {
+  align-items: center;
+  margin-top: 5%;
+  padding: 5%;
+  background-color: #FFFFFF;
+}
+
+.prdct_view{
+    padding-bottom: 100px;
+}
+.price {
+  font-family: "Arvo", serif;
+}
+.prdt_id {
+  font-family: "Roboto Slab", serif;
+  font-weight: bold;
+}
+.product_add {
+  font-size: 15px;
+  padding-top: 5px;
+  color: #555;
+  font-family: "Montserrat", sans-serif;
+}
+.product_info {
+  font-family: "Playfair Display SC", serif;
+}
+.quans {
+  font-family: "Playfair Display SC", serif;
+}
+.newarrival {
+  background-color: green;
+  width: 50px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+.descri .product_name {
+  color: #555;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: bold;
+}
+.price {
+  color: #FE980F;
+  font-size: 26px;
+  font-weight: bold;
+  font-family: "Josefin Sans", sans-serif;
+  padding-top: 10px;
+}
+.quant {
+  border: 2px solid #555;
+  font-weight: bold;
+  font-style:oblique;
+  height: 33px;
+  text-align: center;
+  width: 50px;
+}
+.cart {
+  background: #FE980F;
+  color: #FFFFFF;
+  font-size: 15px;
+  margin-left: 20px;
+  font-family: "Josefin Sans", sans-serif;
+}
